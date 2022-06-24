@@ -22,5 +22,4 @@ def bananas(s) -> set:
     return res
 
 
-s = "ban"
-print(bananas(s))
+
