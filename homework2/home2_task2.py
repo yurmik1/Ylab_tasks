@@ -148,14 +148,14 @@ while True:
         history_steps.append((x, y))  # добавление хода в реестр
         matrix[y][x] = marker_man  # добавление хода в матрицу
         loser_man = all_check(y, x, marker_man)  # проверка на проигрыш
-        if draw_win():
+        if draw_win():   #проверка на ничью
             break
 
         x, y = bot_input()  # ход бота
         history_steps.append((x, y))  # добавление хода в реестр
         matrix[y][x] = marker_bot  # добавление хода в матрицу
         loser_bot = all_check(y, x, marker_bot)  # проверка на проигрыш
-        if draw_win():
+        if draw_win():   #проверка на ничью
             break
 
         print_matrix(matrix)
