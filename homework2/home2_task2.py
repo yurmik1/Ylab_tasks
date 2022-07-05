@@ -169,6 +169,7 @@ while True:
         if not (loser_man or loser_bot):
             print('Продолжается игра')
 
+    print_matrix(matrix)
     print(f'loser_man {loser_man}  |  loser_bot {loser_bot}')
-    if rec_exit():
+    if rec_exit():      #pfghjc
         break
