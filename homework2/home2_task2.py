@@ -61,7 +61,7 @@ def dia_check_l(y, x, marker):  # проверка по диагонали вл�
     return count
 
 
-def man_input():
+def man_input():  # ввод человека
     x_in = float('inf')
     y_in = float('inf')
     while ((x_in and y_in) not in [num for num in range(0, 10)]) or ((x_in, y_in) in history_steps):
@@ -73,7 +73,7 @@ def man_input():
     return x_in, y_in
 
 
-def rec_exit():
+def rec_exit():  # реквест на повтор игры
     answer = ''
     while answer not in ['да', 'нет']:
         try:
@@ -83,7 +83,7 @@ def rec_exit():
     return True if answer == 'нет' else False
 
 
-def bot_input():
+def bot_input():  # ввод бота
     x_in = float('inf')
     y_in = float('inf')
     while (x_in, y_in) in history_steps:
@@ -103,7 +103,7 @@ def all_check(y, x, marker):  # проверка всех проверок
         return False
 
 
-def draw_win():
+def draw_win():  # проверка на ничью
     if len(history_steps) == 101 and loser_man == False and loser_bot == False:
         print('Ничья')
         return True
@@ -111,7 +111,7 @@ def draw_win():
         return False
 
 
-def print_matrix(matrix):   # печать матрицы
+def print_matrix(matrix):  # печать матрицы
     print('  0 1 2 3 4 5 6 7 8 9')
     for x, i in enumerate(matrix):
         print(x, *i)
@@ -124,13 +124,12 @@ while True:
           'установки маркера (X).\nКоординаты поля выглядятследующим способом:')
     print('координаты x, y -  0..9')
     print('x →', end=' ')
-    for i in range(10): #Начало игры
+    for i in range(10):  # Начало игры . Печать координат
         print(i, end=' ')
     print('')
     print('y ↓ 1')
     for i in range(2, 10):
         print(f'    {i}')
-
 
     loser_man = False
     loser_bot = False
@@ -150,18 +149,18 @@ while True:
         loser_man = all_check(y, x, marker_man)  # проверка на проигрыш
         if loser_man:
             break
-        if draw_win():   #проверка на ничью
+        if draw_win():  # проверка на ничью
             break
 
         x, y = bot_input()  # ход бота
-        if all_check(y, x, marker_bot): # проверка хода бота, если бот попадает на проигрыш, то повторить ход
+        if all_check(y, x, marker_bot):  # проверка хода бота, если бот попадает на проигрыш, то повторить ход
             x, y = bot_input()
         history_steps.append((x, y))  # добавление хода в реестр
         matrix[y][x] = marker_bot  # добавление хода в матрицу
         loser_bot = all_check(y, x, marker_bot)  # проверка на проигрыш
         if loser_bot:
             break
-        if draw_win():   #проверка на ничью
+        if draw_win():  # проверка на ничью
             break
 
         print_matrix(matrix)
@@ -170,6 +169,6 @@ while True:
             print('Продолжается игра')
 
     print_matrix(matrix)
-    print(f'loser_man {loser_man}  |  loser_bot {loser_bot}')
-    if rec_exit():      #pfghjc
+    print(f'loser man - {loser_man}  |  loser bot - {loser_bot}') # печать результата
+    if rec_exit():  # pfghjc
         break
