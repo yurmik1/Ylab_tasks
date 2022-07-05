@@ -170,5 +170,5 @@ while True:
 
     print_matrix(matrix)
     print(f'loser man - {loser_man}  |  loser bot - {loser_bot}') # печать результата
-    if rec_exit():  # pfghjc
+    if rec_exit():  # запрос на повтор
         break
