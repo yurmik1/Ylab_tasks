@@ -61,7 +61,7 @@ def dia_check_l(y, x, marker):  # проверка по диагонали вл�
     return count
 
 
-def man_input():    #ввод координат человеком
+def man_input():
     x_in = float('inf')
     y_in = float('inf')
     while ((x_in and y_in) not in [num for num in range(0, 10)]) or ((x_in, y_in) in history_steps):
@@ -73,7 +73,7 @@ def man_input():    #ввод координат человеком
     return x_in, y_in
 
 
-def rec_exit(): # запрос на повтор игры
+def rec_exit():
     answer = ''
     while answer not in ['да', 'нет']:
         try:
@@ -83,7 +83,7 @@ def rec_exit(): # запрос на повтор игры
     return True if answer == 'нет' else False
 
 
-def bot_input():    #ввод координат ботом
+def bot_input():
     x_in = float('inf')
     y_in = float('inf')
     while (x_in, y_in) in history_steps:
@@ -103,7 +103,7 @@ def all_check(y, x, marker):  # проверка всех проверок
         return False
 
 
-def draw_win(): # проверка на ничью
+def draw_win():
     if len(history_steps) == 101 and loser_man == False and loser_bot == False:
         print('Ничья')
         return True
@@ -152,6 +152,8 @@ while True:
             break
 
         x, y = bot_input()  # ход бота
+        if all_check(y, x, marker_bot): # проверка хода бота, если бот попадает на проигрыш, то повторить ход
+            x, y = bot_input()
         history_steps.append((x, y))  # добавление хода в реестр
         matrix[y][x] = marker_bot  # добавление хода в матрицу
         loser_bot = all_check(y, x, marker_bot)  # проверка на проигрыш
