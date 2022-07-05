@@ -104,7 +104,7 @@ def all_check(y, x, marker):  # проверка всех проверок
 
 
 def draw_win():
-    if len(history_steps) == 101 and loser_man == False and loser_bot == False:
+    if len(history_steps) == 100 and loser_man == False and loser_bot == False:
         print('Ничья')
         return True
     else:
