@@ -139,7 +139,7 @@ while True:
     history_steps = [(float('inf'), float('inf'))]  # инициализация списка шагов
     n = 10
     matrix = [["-" for i in range(n)] for j in range(n)]  # составление поля
-    tmp = input('Для начала игры нажмите на клавиатуре "Enter"')
+    tmp = input('Для начала игры введите любой символ и нажмите на клавиатуре "Enter"')
     print('Игровое поле:')
     print_matrix(matrix)
 
