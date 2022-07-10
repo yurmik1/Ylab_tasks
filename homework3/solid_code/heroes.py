@@ -23,17 +23,7 @@ class SuperHero:
     # Несоблюден: Принцип разделения интерфейса
     # По SOLID: Создать классы-миксины для каждого оружия
     # Когда возникнут трудности? Попробуйте запретить Чаку норрису пользоваться лазерами из глаз!
-    def fire_a_gun(self):
-        print('PIU PIU')
 
-    def incinerate_with_lasers(self):
-        print('Wzzzuuuup!')
-
-    def roundhouse_kick(self):
-        print('Bump')
-
-    def attack(self):
-        self.fire_a_gun()
 
     # Проблема: У разных супергероев разные суперспособности
     # Несоблюден: Принцип открытости/закрытости
