@@ -7,9 +7,10 @@ class Place(ABC):
     def get_local_antagonist(self):
         ...
 
+
 class Kostroma(Place):
-#    name = 'Kostroma'
-    coordinates = [11.11, 22.22]
+    name = 'Kostroma'
+
     def get_local_antagonist(self):
         print('Orcs hid in the forest')
 

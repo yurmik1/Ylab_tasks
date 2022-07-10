@@ -17,13 +17,23 @@ class SuperHero:
     # По SOLID: Вынести оповещение в отдельный кл сс, занимающийся выводом информации.
     # Когда возникнут трудности? Добавьте оповещение о победе героя через газеты или через TV (на выбор)
     # а также попробуйте оповестить планеты (у которых вместа атрибута name:str используется coordinates:List[float]).
-    # Создан класс Mass_media в heroes.py
+
 
     # Проблема: Для каждого супергероя реализованы все методы обращения с оружием.
     # Несоблюден: Принцип разделения интерфейса
     # По SOLID: Создать классы-миксины для каждого оружия
     # Когда возникнут трудности? Попробуйте запретить Чаку норрису пользоваться лазерами из глаз!
+    def fire_a_gun(self):
+        print('PIU PIU')
 
+    def incinerate_with_lasers(self):
+        print('Wzzzuuuup!')
+
+    def roundhouse_kick(self):
+        print('Bump')
+
+    def attack(self):
+        self.fire_a_gun()
 
     # Проблема: У разных супергероев разные суперспособности
     # Несоблюден: Принцип открытости/закрытости
@@ -63,15 +73,12 @@ class Mass_media:
         print(f'{hero_name} saved the {place_name}!{tv}')
 
 
-class Superman(Fire_a_gun, Incinerate_with_lasers, SuperHero):
+class Superman(Roundhouse_kick, Incinerate_with_lasers, SuperHero):
 
     def __init__(self):
         super(Superman, self).__init__('Clark Kent', True)
 
-    def ultimate(self):
-        if self.name == 'Clark Kent':
-            self.incinerate_with_lasers()
-
+    
     # Проблема: Сигнатура метода изменилась. Если мэр города обратится к супермену как к супергерою у Кларка возникнут проблемы с атакой
     # Несоблюден: Принцип подстановки Барбары Лисков
     # По SOLID: Не допускать таких вольностей

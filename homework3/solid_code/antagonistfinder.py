@@ -6,9 +6,6 @@ class AntagonistFinder:
     # По SOLID: Создать абстрактный класс Place, обязывающий реализовать метод для поиска злодея
     # Когда возникнут трудности: Когда ваш проект обретет мировую славу
 
-    # Создан абстрактный класс в places.py
-
     def get_antagonist(self, place):
-
         place.get_local_antagonist()
 
