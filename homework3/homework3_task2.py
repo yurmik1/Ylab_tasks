@@ -5,7 +5,7 @@ if __name__ == '__main__':
     def df_decorator(call_count=1, start_sleep_time=2, factor=3, border_sleep_time=4):
         def func_decorator(func):
             def wrapper():
-                t = start_sleep_time
+                t = start_sleep_time * 2 ** factor
                 print(f'Кол-во запусков = {call_count}')
                 print('Начало работы')
                 for i in range(1, call_count + 1):
@@ -19,17 +19,17 @@ if __name__ == '__main__':
                         sec = "секунд"
                     print(f'Запуск номер {i}. Ожидание: {t} {sec}. Результат декорируемой функций = {func_result}')
                     t = t * 2 ** factor if t * 2 ** factor < border_sleep_time else border_sleep_time
-                    print('Конец работы')
+                print('Конец работы')
             return wrapper
         return func_decorator
 
 
-    @df_decorator(call_count=3, start_sleep_time=2, factor=3, border_sleep_time=50)
+    @df_decorator(call_count=4, start_sleep_time=1, factor=2, border_sleep_time=60)
     def function():
         return 'Функция выполнена'
 
 
-
+    function()
 
 
 
